@@ -8,6 +8,8 @@ export type Internship = {
   duration: string;
   skills: string[];
   description: string;
+  projectDescription: string;
+  targetSchools: string[];
   postedAt: string;
   logo: string;
   applicants: number;
@@ -24,7 +26,9 @@ export const internships: Internship[] = [
     duration: "3 mois",
     skills: ["React", "Node.js", "TypeScript", "PostgreSQL"],
     description:
-      "Rejoignez notre équipe de développement pour travailler sur des projets innovants. Vous participez au développement de notre plateforme SaaS B2B utilisée par plus de 500 entreprises marocaines. Stack moderne, environnement agile, code review systématique.",
+      "Rejoignez notre equipe de developpement pour travailler sur des projets innovants. Vous participez au developpement de notre plateforme SaaS B2B utilisee par plus de 500 entreprises marocaines. Stack moderne, environnement agile, code review systematique.",
+    projectDescription: "Developpement de nouveaux modules sur notre plateforme SaaS B2B : tableau de bord analytics, systeme de facturation automatique, et API d'integration partenaires.",
+    targetSchools: ["ENSIAS", "EMI", "INPT", "ENSA"],
     postedAt: "2026-05-10",
     logo: "CT",
     applicants: 12,
@@ -39,7 +43,9 @@ export const internships: Internship[] = [
     duration: "6 mois",
     skills: ["Docker", "Kubernetes", "AWS", "Terraform", "CI/CD"],
     description:
-      "Intégrez notre équipe infrastructure pour automatiser nos pipelines CI/CD, gérer nos clusters Kubernetes et optimiser notre infrastructure AWS. Vous travaillerez directement avec des ingénieurs seniors sur des projets à fort impact.",
+      "Integrez notre equipe infrastructure pour automatiser nos pipelines CI/CD, gerer nos clusters Kubernetes et optimiser notre infrastructure AWS. Vous travaillerez directement avec des ingenieurs seniors sur des projets a fort impact.",
+    projectDescription: "Migration de notre infrastructure on-premise vers AWS EKS. Le stagiaire prendra en charge l'ecriture des manifests Kubernetes et l'automatisation Terraform pour 3 environnements (dev, staging, prod).",
+    targetSchools: ["INPT", "ENSIAS", "ENSA"],
     postedAt: "2026-05-08",
     logo: "MCG",
     applicants: 8,
@@ -54,7 +60,9 @@ export const internships: Internship[] = [
     duration: "4 mois",
     skills: ["Pentest", "SIEM", "Python", "Kali Linux", "OWASP"],
     description:
-      "Participez à nos missions d'audit de sécurité, de test de pénétration et de réponse aux incidents. Vous serez accompagné par notre équipe SOC certifiée CISSP pour développer vos compétences en cybersécurité offensive et défensive.",
+      "Participez a nos missions d'audit de securite, de test de penetration et de reponse aux incidents. Vous serez accompagne par notre equipe SOC certifiee CISSP.",
+    projectDescription: "Realisation d'un audit de securite complet d'une application web client (secteur bancaire) : tests d'intrusion, analyse OWASP Top 10, rapport de vulnerabilites et plan de remediation.",
+    targetSchools: ["ENSA", "ENSIAS", "EMSI"],
     postedAt: "2026-05-07",
     logo: "SN",
     applicants: 5,
@@ -69,7 +77,9 @@ export const internships: Internship[] = [
     duration: "3 mois",
     skills: ["Python", "Pandas", "Scikit-learn", "TensorFlow", "SQL"],
     description:
-      "Travaillez sur des modèles de machine learning appliqués au e-commerce marocain. Vous construirez des pipelines de données, entraînerez des modèles de recommandation et présenterez vos résultats aux équipes produit.",
+      "Travaillez sur des modeles de machine learning appliques au e-commerce marocain. Vous construirez des pipelines de donnees et entrainerez des modeles de recommandation.",
+    projectDescription: "Construction d'un moteur de recommandation produits pour notre marketplace : collecte de donnees comportementales, entrainement de modeles collaborative filtering, AB testing et mise en production.",
+    targetSchools: ["EMI", "ENSIAS", "INPT", "UM6P"],
     postedAt: "2026-05-05",
     logo: "DMA",
     applicants: 15,
@@ -84,7 +94,9 @@ export const internships: Internship[] = [
     duration: "3 mois",
     skills: ["Flutter", "Dart", "Firebase", "REST API"],
     description:
-      "Développez de nouvelles fonctionnalités sur notre application mobile comptant 50 000 utilisateurs actifs. Vous travaillerez en étroite collaboration avec notre designer UX et notre backend Go.",
+      "Developpez de nouvelles fonctionnalites sur notre application mobile comptant 50 000 utilisateurs actifs.",
+    projectDescription: "Refonte complete de l'UI de l'application (design system), ajout d'un module de notifications push et integration d'un systeme de paiement mobile.",
+    targetSchools: ["ENSIAS", "EMSI", "ENSA", "Universite Hassan II"],
     postedAt: "2026-05-04",
     logo: "AN",
     applicants: 20,
@@ -99,7 +111,9 @@ export const internships: Internship[] = [
     duration: "6 mois",
     skills: ["Cisco", "CCNA", "BGP", "MPLS", "Linux"],
     description:
-      "Intégrez notre NOC pour gérer et superviser notre réseau national. Vous participerez à des projets de migration réseau, configuration de routeurs et switches Cisco, et mise en place de solutions de monitoring.",
+      "Integrez notre NOC pour gerer et superviser notre reseau national.",
+    projectDescription: "Deploiement d'une solution de monitoring reseau (Zabbix + Grafana) sur 50 sites nationaux, avec alerting automatique et tableaux de bord temps reel.",
+    targetSchools: ["INPT", "ENSA", "ENSIAS"],
     postedAt: "2026-05-03",
     logo: "TLM",
     applicants: 6,
@@ -114,7 +128,9 @@ export const internships: Internship[] = [
     duration: "2 mois",
     skills: ["Vue.js", "Nuxt.js", "Tailwind CSS", "GraphQL"],
     description:
-      "Rejoignez notre startup en pleine croissance pour construire notre interface utilisateur. Vous travaillerez sur des composants réutilisables, l'optimisation des performances et l'accessibilité.",
+      "Rejoignez notre startup en pleine croissance pour construire notre interface utilisateur.",
+    projectDescription: "Developpement du dashboard client de notre SaaS : composants de visualisation de donnees, gestion multi-comptes et internationalisation FR/AR/EN.",
+    targetSchools: ["EMSI", "ENSA", "Universite Ibn Tofail"],
     postedAt: "2026-05-02",
     logo: "SHA",
     applicants: 9,
@@ -129,7 +145,9 @@ export const internships: Internship[] = [
     duration: "4 mois",
     skills: ["Selenium", "Cypress", "Jest", "Postman", "Python"],
     description:
-      "Automatisez nos tests end-to-end et API. Vous participerez à la mise en place d'une stratégie de test globale, réduisant notre taux de régression et accélérant nos cycles de release.",
+      "Automatisez nos tests end-to-end et API. Vous participerez a la mise en place d'une strategie de test globale.",
+    projectDescription: "Creation d'une suite de tests automatises pour notre plateforme e-sante : tests fonctionnels, de performance et de securite, avec rapport de couverture hebdomadaire.",
+    targetSchools: ["ENSIAS", "EMI", "ENSA"],
     postedAt: "2026-04-30",
     logo: "QFT",
     applicants: 4,
@@ -144,7 +162,9 @@ export const internships: Internship[] = [
     duration: "6 mois",
     skills: ["Python", "Django", "PostgreSQL", "Redis", "Docker"],
     description:
-      "Contribuez au développement de notre plateforme de paiement. Vous implémenterez de nouvelles API REST, optimiserez les requêtes base de données et assurerez la sécurité des transactions financières.",
+      "Contribuez au developpement de notre plateforme de paiement.",
+    projectDescription: "Developpement d'un module de reconciliation bancaire automatique : integration avec les APIs CMI et Maroc Telecommerce, reporting PDF automatise et tableau de bord financier.",
+    targetSchools: ["ENSIAS", "EMI", "INPT"],
     postedAt: "2026-04-28",
     logo: "FC",
     applicants: 11,
@@ -159,7 +179,9 @@ export const internships: Internship[] = [
     duration: "5 mois",
     skills: ["AWS", "Azure", "Terraform", "Ansible", "Python"],
     description:
-      "Participez à la migration cloud de nos clients entreprises. Vous concevrez des architectures cloud, automatiserez le provisioning et mettrez en place des solutions de monitoring et d'alerting.",
+      "Participez a la migration cloud de nos clients entreprises.",
+    projectDescription: "Migration d'une application legacy Java vers une architecture microservices sur AWS : containerisation Docker, orchestration EKS, mise en place du monitoring CloudWatch.",
+    targetSchools: ["INPT", "ENSIAS", "EMI", "ENSA"],
     postedAt: "2026-04-25",
     logo: "CSM",
     applicants: 7,
@@ -174,7 +196,9 @@ export const internships: Internship[] = [
     duration: "4 mois",
     skills: ["Python", "HuggingFace", "NLP", "PyTorch", "LLM"],
     description:
-      "Travaillez sur des solutions NLP pour l'arabe et le darija marocain. Vous fine-tunerez des modèles de langage, construirez des pipelines d'évaluation et publierez vos résultats.",
+      "Travaillez sur des solutions NLP pour l'arabe et le darija marocain.",
+    projectDescription: "Fine-tuning d'un modele de langage (LLaMA / Mistral) sur un corpus darija marocain pour un chatbot de support client. Evaluation, benchmarking et documentation des resultats.",
+    targetSchools: ["EMI", "ENSIAS", "UM6P", "INPT"],
     postedAt: "2026-04-22",
     logo: "AVM",
     applicants: 18,
@@ -189,7 +213,9 @@ export const internships: Internship[] = [
     duration: "2 mois",
     skills: ["PHP", "WordPress", "MySQL", "JavaScript", "SEO"],
     description:
-      "Développez et maintenez des sites web pour nos clients PME marocains. Vous créerez des thèmes WordPress sur mesure, optimiserez les performances et formerez les clients à l'utilisation du CMS.",
+      "Developpez et maintenez des sites web pour nos clients PME marocains.",
+    projectDescription: "Developpement d'un theme WordPress sur mesure pour un client e-commerce (boutique de mode), avec integration WooCommerce, optimisation SEO et connexion a une API de livraison.",
+    targetSchools: ["EMSI", "ISTA", "Universite Hassan II"],
     postedAt: "2026-04-20",
     logo: "DBT",
     applicants: 3,

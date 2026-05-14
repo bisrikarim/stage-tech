@@ -1,14 +1,27 @@
 "use client";
 import { useState } from "react";
-import { Upload, GitBranch, ExternalLink, User, GraduationCap, CheckCircle, Plus, X } from "lucide-react";
+import { Upload, GitBranch, ExternalLink, User, GraduationCap, CheckCircle, Plus, X, FolderGit2, Briefcase, Star } from "lucide-react";
 
 const initialSkills = ["React", "TypeScript", "Node.js", "Python", "Git"];
+const initialTechPrefs = ["React", "Node.js"];
+const allTechs = ["React", "Vue.js", "Angular", "Node.js", "Python", "Django", "FastAPI", "Docker", "Kubernetes", "AWS", "Flutter", "TypeScript", "Java", "Spring", "PostgreSQL", "MongoDB"];
 
 export default function ProfilePage() {
   const [cvUploaded, setCvUploaded] = useState(false);
   const [skills, setSkills] = useState(initialSkills);
   const [newSkill, setNewSkill] = useState("");
   const [saved, setSaved] = useState(false);
+  const [techPrefs, setTechPrefs] = useState(initialTechPrefs);
+  const [projects, setProjects] = useState([
+    { title: "Plateforme e-learning adaptive", type: "PFA", techs: "React, Node.js, MongoDB", description: "Application web de formation en ligne avec suivi adaptatif." },
+  ]);
+  const [previousStages, setPreviousStages] = useState([
+    { company: "InnoTech Rabat", role: "Developpeur Frontend", duration: "2 mois", year: "2025", type: "Observation" },
+  ]);
+  const [newProject, setNewProject] = useState({ title: "", type: "PFA", techs: "", description: "" });
+  const [newStage, setNewStage] = useState({ company: "", role: "", duration: "", year: "", type: "Observation" });
+  const [showProjectForm, setShowProjectForm] = useState(false);
+  const [showStageForm, setShowStageForm] = useState(false);
 
   const addSkill = () => {
     if (newSkill.trim() && !skills.includes(newSkill.trim())) {
@@ -102,6 +115,110 @@ export default function ProfilePage() {
             <button onClick={addSkill} className="p-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl transition">
               <Plus className="w-4 h-4" />
             </button>
+          </div>
+        </div>
+
+        {/* Tech Preferences */}
+        <div className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6">
+          <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2"><Star className="w-5 h-5 text-amber-500" />Technologies preferees</h2>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">Les recruteurs filtrent sur vos preferences — soyez precis</p>
+          <div className="flex flex-wrap gap-2 mb-3">
+            {allTechs.map((t) => (
+              <button key={t} type="button" onClick={() => setTechPrefs(techPrefs.includes(t) ? techPrefs.filter((p) => p !== t) : [...techPrefs, t])}
+                className={`text-xs px-3 py-1.5 rounded-lg border font-medium transition ${techPrefs.includes(t) ? "bg-emerald-600 text-white border-emerald-600" : "border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-emerald-400"}`}>
+                {t}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Projects PFA / PFE */}
+        <div className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6">
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2"><FolderGit2 className="w-5 h-5 text-amber-500" />Projets scolaires (PFA / PFE)</h2>
+            <button onClick={() => setShowProjectForm(!showProjectForm)} className="text-xs text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1"><Plus className="w-3.5 h-3.5" />Ajouter</button>
+          </div>
+          {showProjectForm && (
+            <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 mb-4 space-y-3">
+              <div className="grid sm:grid-cols-2 gap-3">
+                <input value={newProject.title} onChange={(e) => setNewProject({ ...newProject, title: e.target.value })} placeholder="Titre du projet"
+                  className="text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                <select value={newProject.type} onChange={(e) => setNewProject({ ...newProject, type: e.target.value })}
+                  className="text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                  <option>PFA</option><option>PFE</option><option>Personnel</option>
+                </select>
+              </div>
+              <input value={newProject.techs} onChange={(e) => setNewProject({ ...newProject, techs: e.target.value })} placeholder="Technologies (ex: React, Node.js)"
+                className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+              <textarea value={newProject.description} onChange={(e) => setNewProject({ ...newProject, description: e.target.value })} placeholder="Description courte du projet..." rows={2}
+                className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-none" />
+              <button onClick={() => { if (newProject.title) { setProjects([...projects, newProject]); setNewProject({ title: "", type: "PFA", techs: "", description: "" }); setShowProjectForm(false); } }}
+                className="bg-emerald-600 hover:bg-emerald-700 text-white text-sm px-4 py-2 rounded-xl transition">Ajouter le projet</button>
+            </div>
+          )}
+          <div className="space-y-3">
+            {projects.map((p, i) => (
+              <div key={i} className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 flex items-start gap-3">
+                <FolderGit2 className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-sm font-semibold text-gray-900 dark:text-white">{p.title}</span>
+                    <span className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-1.5 py-0.5 rounded-full">{p.type}</span>
+                  </div>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 mb-1.5">{p.description}</p>
+                  <div className="flex flex-wrap gap-1">
+                    {p.techs.split(",").map((t) => t.trim()).filter(Boolean).map((t) => (
+                      <span key={t} className="text-xs bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 px-1.5 py-0.5 rounded">{t}</span>
+                    ))}
+                  </div>
+                </div>
+                <button onClick={() => setProjects(projects.filter((_, idx) => idx !== i))} className="text-gray-300 hover:text-red-500 transition"><X className="w-4 h-4" /></button>
+              </div>
+            ))}
+            {projects.length === 0 && <p className="text-sm text-gray-400 text-center py-4">Aucun projet ajoute</p>}
+          </div>
+        </div>
+
+        {/* Previous Stages */}
+        <div className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6">
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2"><Briefcase className="w-5 h-5 text-emerald-500" />Stages precedents</h2>
+            <button onClick={() => setShowStageForm(!showStageForm)} className="text-xs text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1"><Plus className="w-3.5 h-3.5" />Ajouter</button>
+          </div>
+          {showStageForm && (
+            <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 mb-4 space-y-3">
+              <div className="grid sm:grid-cols-2 gap-3">
+                <input value={newStage.company} onChange={(e) => setNewStage({ ...newStage, company: e.target.value })} placeholder="Entreprise"
+                  className="text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                <input value={newStage.role} onChange={(e) => setNewStage({ ...newStage, role: e.target.value })} placeholder="Role (ex: Dev Frontend)"
+                  className="text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                <input value={newStage.year} onChange={(e) => setNewStage({ ...newStage, year: e.target.value })} placeholder="Annee (ex: 2025)"
+                  className="text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                <select value={newStage.type} onChange={(e) => setNewStage({ ...newStage, type: e.target.value })}
+                  className="text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                  <option>Observation</option><option>PFA</option><option>PFE</option><option>Professionnel</option>
+                </select>
+              </div>
+              <button onClick={() => { if (newStage.company) { setPreviousStages([...previousStages, newStage]); setNewStage({ company: "", role: "", duration: "", year: "", type: "Observation" }); setShowStageForm(false); } }}
+                className="bg-emerald-600 hover:bg-emerald-700 text-white text-sm px-4 py-2 rounded-xl transition">Ajouter le stage</button>
+            </div>
+          )}
+          <div className="space-y-3">
+            {previousStages.map((st, i) => (
+              <div key={i} className="flex items-center gap-3 bg-gray-50 dark:bg-gray-800 rounded-xl p-3">
+                <Briefcase className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                <div className="flex-1">
+                  <span className="text-sm font-semibold text-gray-900 dark:text-white">{st.role}</span>
+                  <span className="text-sm text-gray-500 dark:text-gray-400"> @ {st.company}</span>
+                  <div className="flex gap-2 mt-0.5">
+                    <span className="text-xs text-gray-400">{st.year}</span>
+                    <span className="text-xs bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-1.5 rounded">{st.type}</span>
+                  </div>
+                </div>
+                <button onClick={() => setPreviousStages(previousStages.filter((_, idx) => idx !== i))} className="text-gray-300 hover:text-red-500 transition"><X className="w-4 h-4" /></button>
+              </div>
+            ))}
+            {previousStages.length === 0 && <p className="text-sm text-gray-400 text-center py-4">Aucun stage precedent</p>}
           </div>
         </div>
 

@@ -14,7 +14,9 @@ export default function PostInternshipPage() {
   const [success, setSuccess] = useState(false);
   const [skills, setSkills] = useState<string[]>([]);
   const [newSkill, setNewSkill] = useState("");
-  const [form, setForm] = useState({ title: "", description: "", city: "", domain: "", duration: "", type: "on-site" });
+  const [form, setForm] = useState({ title: "", description: "", projectDescription: "", city: "", domain: "", duration: "", type: "on-site" });
+  const [targetSchools, setTargetSchools] = useState<string[]>([]);
+  const allSchools = ["ENSIAS", "EMI", "INPT", "ENSA", "EMSI", "UM6P", "ISTA", "Universite Hassan II", "Universite Ibn Tofail"];
 
   const addSkill = () => {
     if (newSkill.trim() && !skills.includes(newSkill.trim())) {
@@ -116,8 +118,12 @@ export default function PostInternshipPage() {
         <div className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6">
           <h2 className="text-base font-bold text-gray-900 dark:text-white mb-4">Description</h2>
           <textarea required value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })}
-            rows={6} placeholder="Décrivez les missions, le contexte et ce que le stagiaire va apprendre..."
-            className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-none" />
+            rows={6} placeholder="Decrivez les missions, le contexte et ce que le stagiaire va apprendre..."
+            className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-none mb-4" />
+          <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase mb-1.5">Projet sur lequel le stagiaire travaillera *</label>
+          <textarea required value={form.projectDescription} onChange={(e) => setForm({ ...form, projectDescription: e.target.value })}
+            rows={3} placeholder="Ex: Migration de notre API vers microservices, developpement du module de paiement..."
+            className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/20" />
         </div>
 
         {/* Skills */}
@@ -137,6 +143,20 @@ export default function PostInternshipPage() {
             <button type="button" onClick={addSkill} className="p-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl transition">
               <Plus className="w-4 h-4" />
             </button>
+          </div>
+        </div>
+
+        {/* Target Schools */}
+        <div className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6">
+          <h2 className="text-base font-bold text-gray-900 dark:text-white mb-2">Ecoles cibles</h2>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">Selectionnez les ecoles dont vous souhaitez recruter des laureats</p>
+          <div className="flex flex-wrap gap-2">
+            {allSchools.map((school) => (
+              <button type="button" key={school} onClick={() => setTargetSchools(targetSchools.includes(school) ? targetSchools.filter((s) => s !== school) : [...targetSchools, school])}
+                className={`text-sm px-3 py-1.5 rounded-lg border transition font-medium ${targetSchools.includes(school) ? "bg-blue-600 text-white border-blue-600" : "border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-blue-400"}`}>
+                {school}
+              </button>
+            ))}
           </div>
         </div>
 

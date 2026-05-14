@@ -4,7 +4,7 @@ import { useParams, notFound } from "next/navigation";
 import { internships } from "@/data/internships";
 import ApplyModal from "@/components/ApplyModal";
 import Link from "next/link";
-import { MapPin, Clock, Wifi, Building2, Calendar, ArrowLeft, Users, CheckCircle } from "lucide-react";
+import { MapPin, Clock, Wifi, Building2, Calendar, ArrowLeft, Users, CheckCircle, FolderGit2, GraduationCap } from "lucide-react";
 
 const typeLabel: Record<string, string> = { remote: "Remote", "on-site": "Présentiel", hybrid: "Hybride" };
 const logoColors = ["bg-emerald-500","bg-blue-500","bg-violet-500","bg-rose-500","bg-amber-500","bg-sky-500","bg-pink-500","bg-teal-500"];
@@ -71,11 +71,35 @@ export default function InternshipDetailPage() {
 
           {/* Skills */}
           <div className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6">
-            <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Compétences requises</h2>
+            <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Competences requises</h2>
             <div className="flex flex-wrap gap-2">
               {internship.skills.map((s) => (
                 <span key={s} className="bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 text-sm px-3 py-1.5 rounded-lg font-medium">
                   {s}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Project */}
+          <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-2xl p-6">
+            <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+              <FolderGit2 className="w-5 h-5 text-amber-500" />
+              Projet sur lequel vous allez travailler
+            </h2>
+            <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{internship.projectDescription}</p>
+          </div>
+
+          {/* Target Schools */}
+          <div className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6">
+            <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+              <GraduationCap className="w-5 h-5 text-blue-500" />
+              Ecoles cibles
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {internship.targetSchools.map((school) => (
+                <span key={school} className="bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 text-sm px-3 py-1.5 rounded-lg font-medium">
+                  {school}
                 </span>
               ))}
             </div>
