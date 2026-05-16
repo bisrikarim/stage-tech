@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { MapPin, Clock, Wifi, Building2, Calendar } from "lucide-react";
 import { Internship } from "@/data/internships";
 
@@ -7,7 +7,7 @@ const domainColors: Record<string, string> = {
   "DevOps": "bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300",
   "Cybersecurity": "bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300",
   "Data & AI": "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300",
-  "Web/Mobile": "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300",
+  "Web/Mobile": "bg-brand-100 text-brand-700 dark:bg-brand-900/40 dark:text-brand-300",
   "Networking": "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-300",
   "QA": "bg-pink-100 text-pink-700 dark:bg-pink-900/40 dark:text-pink-300",
   "Cloud": "bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300",
@@ -33,8 +33,8 @@ function daysAgo(dateStr: string) {
 }
 
 const logoColors = [
-  "bg-emerald-500","bg-blue-500","bg-violet-500","bg-rose-500",
-  "bg-amber-500","bg-sky-500","bg-pink-500","bg-teal-500",
+  "bg-brand-500","bg-blue-500","bg-violet-500","bg-rose-500",
+  "bg-amber-500","bg-sky-500","bg-pink-500","bg-brand-500",
 ];
 
 function logoColor(id: string) {
@@ -44,14 +44,14 @@ function logoColor(id: string) {
 export default function InternshipCard({ internship }: { internship: Internship }) {
   return (
     <Link href={`/internships/${internship.id}`}>
-      <div className="group bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-5 hover:shadow-lg hover:border-emerald-200 dark:hover:border-emerald-800 transition-all duration-200 cursor-pointer h-full flex flex-col gap-4">
+      <div className="group bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-5 hover:shadow-lg hover:border-brand-200 dark:hover:border-brand-800 transition-all duration-200 cursor-pointer h-full flex flex-col gap-4">
         {/* Header */}
         <div className="flex items-start gap-3">
           <div className={`w-11 h-11 rounded-xl ${logoColor(internship.id)} flex items-center justify-center text-white font-bold text-xs flex-shrink-0`}>
             {internship.logo}
           </div>
           <div className="flex-1 min-w-0">
-            <h3 className="font-semibold text-gray-900 dark:text-white text-sm leading-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition line-clamp-2">
+            <h3 className="font-semibold text-gray-900 dark:text-white text-sm leading-tight group-hover:text-brand-600 dark:group-hover:text-brand-400 transition line-clamp-2">
               {internship.title}
             </h3>
             <p className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">{internship.company}</p>

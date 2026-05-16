@@ -7,7 +7,7 @@ import Link from "next/link";
 import { MapPin, Clock, Wifi, Building2, Calendar, ArrowLeft, Users, CheckCircle, FolderGit2, GraduationCap } from "lucide-react";
 
 const typeLabel: Record<string, string> = { remote: "Remote", "on-site": "Présentiel", hybrid: "Hybride" };
-const logoColors = ["bg-emerald-500","bg-blue-500","bg-violet-500","bg-rose-500","bg-amber-500","bg-sky-500","bg-pink-500","bg-teal-500"];
+const logoColors = ["bg-brand-500","bg-blue-500","bg-violet-500","bg-rose-500","bg-amber-500","bg-sky-500","bg-pink-500","bg-brand-500"];
 
 function daysAgo(dateStr: string) {
   const diff = Math.floor((Date.now() - new Date(dateStr).getTime()) / 86400000);
@@ -27,7 +27,7 @@ export default function InternshipDetailPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <Link href="/internships" className="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 mb-8 transition">
+      <Link href="/internships" className="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-400 mb-8 transition">
         <ArrowLeft className="w-4 h-4" /> Retour aux stages
       </Link>
 
@@ -47,7 +47,7 @@ export default function InternshipDetailPage() {
             </div>
 
             <div className="flex flex-wrap gap-3 text-sm text-gray-600 dark:text-gray-400 mb-6">
-              <span className="flex items-center gap-1.5 bg-gray-50 dark:bg-gray-800 px-3 py-1.5 rounded-lg"><MapPin className="w-4 h-4 text-emerald-500" />{internship.city}</span>
+              <span className="flex items-center gap-1.5 bg-gray-50 dark:bg-gray-800 px-3 py-1.5 rounded-lg"><MapPin className="w-4 h-4 text-brand-500" />{internship.city}</span>
               <span className="flex items-center gap-1.5 bg-gray-50 dark:bg-gray-800 px-3 py-1.5 rounded-lg">
                 {internship.type === "remote" ? <Wifi className="w-4 h-4 text-blue-500" /> : <Building2 className="w-4 h-4 text-violet-500" />}
                 {typeLabel[internship.type]}
@@ -58,7 +58,7 @@ export default function InternshipDetailPage() {
             </div>
 
             <button onClick={() => setModal(true)}
-              className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-semibold text-sm transition flex items-center justify-center gap-2">
+              className="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white px-8 py-3 rounded-xl font-semibold text-sm transition flex items-center justify-center gap-2">
               <CheckCircle className="w-4 h-4" /> Postuler maintenant
             </button>
           </div>
@@ -74,7 +74,7 @@ export default function InternshipDetailPage() {
             <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Competences requises</h2>
             <div className="flex flex-wrap gap-2">
               {internship.skills.map((s) => (
-                <span key={s} className="bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 text-sm px-3 py-1.5 rounded-lg font-medium">
+                <span key={s} className="bg-brand-50 dark:bg-brand-900/30 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800 text-sm px-3 py-1.5 rounded-lg font-medium">
                   {s}
                 </span>
               ))}
@@ -114,7 +114,7 @@ export default function InternshipDetailPage() {
             <div className={`w-12 h-12 rounded-xl ${color} flex items-center justify-center text-white font-bold text-xs mb-3`}>{internship.logo}</div>
             <p className="font-semibold text-gray-900 dark:text-white mb-1">{internship.company}</p>
             <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">{internship.city}, Maroc</p>
-            <div className="text-xs bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-3 py-1.5 rounded-lg w-fit">{internship.domain}</div>
+            <div className="text-xs bg-brand-50 dark:bg-brand-900/30 text-brand-700 dark:text-brand-300 px-3 py-1.5 rounded-lg w-fit">{internship.domain}</div>
           </div>
 
           {/* Details */}
@@ -141,7 +141,7 @@ export default function InternshipDetailPage() {
           </div>
 
           <button onClick={() => setModal(true)}
-            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-xl font-semibold text-sm transition">
+            className="w-full bg-brand-600 hover:bg-brand-700 text-white py-3 rounded-xl font-semibold text-sm transition">
             Postuler maintenant
           </button>
         </div>

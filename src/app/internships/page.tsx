@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { internships } from "@/data/internships";
@@ -51,13 +51,13 @@ function InternshipListContent() {
         <div className="flex-1 relative">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
           <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Rechercher par titre, skill, entreprise..."
-            className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+            className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-500" />
         </div>
         <button onClick={() => setShowFilters(!showFilters)}
-          className="flex items-center gap-2 px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-sm font-medium text-gray-600 dark:text-gray-300 hover:border-emerald-400 transition relative">
+          className="flex items-center gap-2 px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-sm font-medium text-gray-600 dark:text-gray-300 hover:border-brand-400 transition relative">
           <SlidersHorizontal className="w-4 h-4" />
           Filtres
-          {activeFilters > 0 && <span className="absolute -top-1.5 -right-1.5 bg-emerald-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">{activeFilters}</span>}
+          {activeFilters > 0 && <span className="absolute -top-1.5 -right-1.5 bg-brand-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">{activeFilters}</span>}
         </button>
         {activeFilters > 0 && (
           <button onClick={clearAll} className="flex items-center gap-1 px-3 py-3 rounded-xl border border-red-200 dark:border-red-800 text-red-500 text-sm hover:bg-red-50 dark:hover:bg-red-900/20 transition">
@@ -72,7 +72,7 @@ function InternshipListContent() {
           <div>
             <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase mb-2">Ville</label>
             <select value={city} onChange={(e) => setCity(e.target.value)}
-              className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500">
               <option value="">Toutes</option>
               {cities.map((c) => <option key={c}>{c}</option>)}
             </select>
@@ -80,7 +80,7 @@ function InternshipListContent() {
           <div>
             <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase mb-2">Domaine</label>
             <select value={domain} onChange={(e) => setDomain(e.target.value)}
-              className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500">
               <option value="">Tous</option>
               {domains.map((d) => <option key={d}>{d}</option>)}
             </select>
@@ -88,7 +88,7 @@ function InternshipListContent() {
           <div>
             <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase mb-2">Type</label>
             <select value={type} onChange={(e) => setType(e.target.value)}
-              className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500">
               <option value="">Tous</option>
               {types.map((t) => <option key={t.value} value={t.value}>{t.label}</option>)}
             </select>
@@ -96,7 +96,7 @@ function InternshipListContent() {
           <div>
             <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase mb-2">Durée</label>
             <select value={duration} onChange={(e) => setDuration(e.target.value)}
-              className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500">
               <option value="">Toutes</option>
               {durations.map((d) => <option key={d}>{d}</option>)}
             </select>
@@ -114,7 +114,7 @@ function InternshipListContent() {
           <p className="text-5xl mb-4">🔍</p>
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Aucun résultat trouvé</h3>
           <p className="text-gray-500 dark:text-gray-400 text-sm mb-4">Essaie de modifier tes filtres ou ta recherche</p>
-          <button onClick={clearAll} className="text-emerald-600 dark:text-emerald-400 text-sm font-medium hover:underline">Réinitialiser les filtres</button>
+          <button onClick={clearAll} className="text-brand-600 dark:text-brand-400 text-sm font-medium hover:underline">Réinitialiser les filtres</button>
         </div>
       ) : (
         <>

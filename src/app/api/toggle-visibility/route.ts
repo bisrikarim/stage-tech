@@ -1,0 +1,18 @@
+import { createClient } from "@/lib/supabase/server";
+import { NextResponse } from "next/server";
+
+export async function POST(req: Request) {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return NextResponse.json({ error: "Non authentifié" }, { status: 401 });
+
+  const { is_visible } = await req.json();
+
+  const { error } = await supabase
+    .from("student_profiles")
+    .update({ is_visible })
+    .eq("user_id", user.id);
+
+  if (error) return NextResponse.json({ error: error.message }, { status: 400 });
+  return NextResponse.json({ success: true });
+}

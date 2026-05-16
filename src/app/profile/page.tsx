@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState } from "react";
 import { Upload, GitBranch, ExternalLink, User, GraduationCap, CheckCircle, Plus, X, FolderGit2, Briefcase, Star } from "lucide-react";
 
@@ -45,7 +45,7 @@ export default function ProfilePage() {
       </div>
 
       {saved && (
-        <div className="flex items-center gap-2 bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 px-4 py-3 rounded-xl mb-6 text-sm">
+        <div className="flex items-center gap-2 bg-brand-50 dark:bg-brand-900/30 border border-brand-200 dark:border-brand-800 text-brand-700 dark:text-brand-300 px-4 py-3 rounded-xl mb-6 text-sm">
           <CheckCircle className="w-4 h-4" /> Profil sauvegardé avec succès !
         </div>
       )}
@@ -53,13 +53,13 @@ export default function ProfilePage() {
       <div className="space-y-6">
         {/* Avatar + Name */}
         <div className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6">
-          <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-5 flex items-center gap-2"><User className="w-5 h-5 text-emerald-500" />Informations personnelles</h2>
+          <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-5 flex items-center gap-2"><User className="w-5 h-5 text-brand-500" />Informations personnelles</h2>
           <div className="flex items-center gap-5 mb-6">
-            <div className="w-20 h-20 bg-emerald-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">YE</div>
+            <div className="w-20 h-20 bg-brand-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">YE</div>
             <div>
               <p className="font-semibold text-gray-900 dark:text-white">Yassine El Amrani</p>
               <p className="text-sm text-gray-500 dark:text-gray-400">ENSIAS - Rabat · Bac+5</p>
-              <button className="text-xs text-emerald-600 dark:text-emerald-400 mt-1 hover:underline">Changer la photo</button>
+              <button className="text-xs text-brand-600 dark:text-brand-400 mt-1 hover:underline">Changer la photo</button>
             </div>
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
@@ -72,7 +72,7 @@ export default function ProfilePage() {
               <div key={f.label}>
                 <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase mb-1.5">{f.label}</label>
                 <input defaultValue={f.value} placeholder={f.placeholder}
-                  className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                  className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500" />
               </div>
             ))}
           </div>
@@ -91,7 +91,7 @@ export default function ProfilePage() {
               <div key={f.label}>
                 <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase mb-1.5">{f.label}</label>
                 <input defaultValue={f.value}
-                  className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                  className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500" />
               </div>
             ))}
           </div>
@@ -102,7 +102,7 @@ export default function ProfilePage() {
           <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-5">Compétences techniques</h2>
           <div className="flex flex-wrap gap-2 mb-4">
             {skills.map((s) => (
-              <span key={s} className="flex items-center gap-1.5 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 text-sm px-3 py-1.5 rounded-lg">
+              <span key={s} className="flex items-center gap-1.5 bg-brand-50 dark:bg-brand-900/30 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800 text-sm px-3 py-1.5 rounded-lg">
                 {s}
                 <button onClick={() => removeSkill(s)} className="hover:text-red-500 transition"><X className="w-3.5 h-3.5" /></button>
               </span>
@@ -111,8 +111,8 @@ export default function ProfilePage() {
           <div className="flex gap-2">
             <input value={newSkill} onChange={(e) => setNewSkill(e.target.value)} onKeyDown={(e) => e.key === "Enter" && addSkill()}
               placeholder="Ajouter une compétence..."
-              className="flex-1 text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500" />
-            <button onClick={addSkill} className="p-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl transition">
+              className="flex-1 text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500" />
+            <button onClick={addSkill} className="p-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-xl transition">
               <Plus className="w-4 h-4" />
             </button>
           </div>
@@ -125,7 +125,7 @@ export default function ProfilePage() {
           <div className="flex flex-wrap gap-2 mb-3">
             {allTechs.map((t) => (
               <button key={t} type="button" onClick={() => setTechPrefs(techPrefs.includes(t) ? techPrefs.filter((p) => p !== t) : [...techPrefs, t])}
-                className={`text-xs px-3 py-1.5 rounded-lg border font-medium transition ${techPrefs.includes(t) ? "bg-emerald-600 text-white border-emerald-600" : "border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-emerald-400"}`}>
+                className={`text-xs px-3 py-1.5 rounded-lg border font-medium transition ${techPrefs.includes(t) ? "bg-brand-600 text-white border-brand-600" : "border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-brand-400"}`}>
                 {t}
               </button>
             ))}
@@ -136,24 +136,24 @@ export default function ProfilePage() {
         <div className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6">
           <div className="flex items-center justify-between mb-5">
             <h2 className="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2"><FolderGit2 className="w-5 h-5 text-amber-500" />Projets scolaires (PFA / PFE)</h2>
-            <button onClick={() => setShowProjectForm(!showProjectForm)} className="text-xs text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1"><Plus className="w-3.5 h-3.5" />Ajouter</button>
+            <button onClick={() => setShowProjectForm(!showProjectForm)} className="text-xs text-brand-600 dark:text-brand-400 hover:underline flex items-center gap-1"><Plus className="w-3.5 h-3.5" />Ajouter</button>
           </div>
           {showProjectForm && (
             <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 mb-4 space-y-3">
               <div className="grid sm:grid-cols-2 gap-3">
                 <input value={newProject.title} onChange={(e) => setNewProject({ ...newProject, title: e.target.value })} placeholder="Titre du projet"
-                  className="text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                  className="text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500" />
                 <select value={newProject.type} onChange={(e) => setNewProject({ ...newProject, type: e.target.value })}
-                  className="text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                  className="text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500">
                   <option>PFA</option><option>PFE</option><option>Personnel</option>
                 </select>
               </div>
               <input value={newProject.techs} onChange={(e) => setNewProject({ ...newProject, techs: e.target.value })} placeholder="Technologies (ex: React, Node.js)"
-                className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500" />
               <textarea value={newProject.description} onChange={(e) => setNewProject({ ...newProject, description: e.target.value })} placeholder="Description courte du projet..." rows={2}
-                className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-none" />
+                className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500 resize-none" />
               <button onClick={() => { if (newProject.title) { setProjects([...projects, newProject]); setNewProject({ title: "", type: "PFA", techs: "", description: "" }); setShowProjectForm(false); } }}
-                className="bg-emerald-600 hover:bg-emerald-700 text-white text-sm px-4 py-2 rounded-xl transition">Ajouter le projet</button>
+                className="bg-brand-600 hover:bg-brand-700 text-white text-sm px-4 py-2 rounded-xl transition">Ajouter le projet</button>
             </div>
           )}
           <div className="space-y-3">
@@ -182,37 +182,37 @@ export default function ProfilePage() {
         {/* Previous Stages */}
         <div className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6">
           <div className="flex items-center justify-between mb-5">
-            <h2 className="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2"><Briefcase className="w-5 h-5 text-emerald-500" />Stages precedents</h2>
-            <button onClick={() => setShowStageForm(!showStageForm)} className="text-xs text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1"><Plus className="w-3.5 h-3.5" />Ajouter</button>
+            <h2 className="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2"><Briefcase className="w-5 h-5 text-brand-500" />Stages precedents</h2>
+            <button onClick={() => setShowStageForm(!showStageForm)} className="text-xs text-brand-600 dark:text-brand-400 hover:underline flex items-center gap-1"><Plus className="w-3.5 h-3.5" />Ajouter</button>
           </div>
           {showStageForm && (
             <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 mb-4 space-y-3">
               <div className="grid sm:grid-cols-2 gap-3">
                 <input value={newStage.company} onChange={(e) => setNewStage({ ...newStage, company: e.target.value })} placeholder="Entreprise"
-                  className="text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                  className="text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500" />
                 <input value={newStage.role} onChange={(e) => setNewStage({ ...newStage, role: e.target.value })} placeholder="Role (ex: Dev Frontend)"
-                  className="text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                  className="text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500" />
                 <input value={newStage.year} onChange={(e) => setNewStage({ ...newStage, year: e.target.value })} placeholder="Annee (ex: 2025)"
-                  className="text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                  className="text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500" />
                 <select value={newStage.type} onChange={(e) => setNewStage({ ...newStage, type: e.target.value })}
-                  className="text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                  className="text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500">
                   <option>Observation</option><option>PFA</option><option>PFE</option><option>Professionnel</option>
                 </select>
               </div>
               <button onClick={() => { if (newStage.company) { setPreviousStages([...previousStages, newStage]); setNewStage({ company: "", role: "", duration: "", year: "", type: "Observation" }); setShowStageForm(false); } }}
-                className="bg-emerald-600 hover:bg-emerald-700 text-white text-sm px-4 py-2 rounded-xl transition">Ajouter le stage</button>
+                className="bg-brand-600 hover:bg-brand-700 text-white text-sm px-4 py-2 rounded-xl transition">Ajouter le stage</button>
             </div>
           )}
           <div className="space-y-3">
             {previousStages.map((st, i) => (
               <div key={i} className="flex items-center gap-3 bg-gray-50 dark:bg-gray-800 rounded-xl p-3">
-                <Briefcase className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                <Briefcase className="w-4 h-4 text-brand-500 flex-shrink-0" />
                 <div className="flex-1">
                   <span className="text-sm font-semibold text-gray-900 dark:text-white">{st.role}</span>
                   <span className="text-sm text-gray-500 dark:text-gray-400"> @ {st.company}</span>
                   <div className="flex gap-2 mt-0.5">
                     <span className="text-xs text-gray-400">{st.year}</span>
-                    <span className="text-xs bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-1.5 rounded">{st.type}</span>
+                    <span className="text-xs bg-brand-100 dark:bg-brand-900/30 text-brand-700 dark:text-brand-300 px-1.5 rounded">{st.type}</span>
                   </div>
                 </div>
                 <button onClick={() => setPreviousStages(previousStages.filter((_, idx) => idx !== i))} className="text-gray-300 hover:text-red-500 transition"><X className="w-4 h-4" /></button>
@@ -229,12 +229,12 @@ export default function ProfilePage() {
             <div>
               <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase mb-1.5 flex items-center gap-1.5"><ExternalLink className="w-3.5 h-3.5 text-blue-600" />LinkedIn</label>
               <input defaultValue="linkedin.com/in/yassine-elamrani" placeholder="linkedin.com/in/..."
-                className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500" />
             </div>
             <div>
               <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase mb-1.5 flex items-center gap-1.5"><GitBranch className="w-3.5 h-3.5" />GitHub</label>
               <input defaultValue="github.com/yassine-elamrani" placeholder="github.com/..."
-                className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                className="w-full text-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500" />
             </div>
           </div>
         </div>
@@ -243,17 +243,17 @@ export default function ProfilePage() {
         <div className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6">
           <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-5">Curriculum Vitae</h2>
           {cvUploaded ? (
-            <div className="flex items-center gap-3 bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 rounded-xl p-4">
-              <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
+            <div className="flex items-center gap-3 bg-brand-50 dark:bg-brand-900/30 border border-brand-200 dark:border-brand-800 rounded-xl p-4">
+              <CheckCircle className="w-5 h-5 text-brand-500 flex-shrink-0" />
               <div>
-                <p className="font-medium text-emerald-700 dark:text-emerald-300 text-sm">CV_Yassine_ElAmrani.pdf</p>
-                <p className="text-xs text-emerald-600 dark:text-emerald-400">Importé avec succès · 245 KB</p>
+                <p className="font-medium text-brand-700 dark:text-brand-300 text-sm">CV_Yassine_ElAmrani.pdf</p>
+                <p className="text-xs text-brand-600 dark:text-brand-400">Importé avec succès · 245 KB</p>
               </div>
               <button onClick={() => setCvUploaded(false)} className="ml-auto text-gray-400 hover:text-red-500 transition"><X className="w-4 h-4" /></button>
             </div>
           ) : (
             <div onClick={() => setCvUploaded(true)}
-              className="border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-xl p-8 text-center cursor-pointer hover:border-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition">
+              className="border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-xl p-8 text-center cursor-pointer hover:border-brand-400 hover:bg-brand-50 dark:hover:bg-brand-900/20 transition">
               <Upload className="w-8 h-8 text-gray-400 mx-auto mb-3" />
               <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Glisse ton CV ici ou clique pour importer</p>
               <p className="text-xs text-gray-400 dark:text-gray-500">PDF uniquement · Max 5 MB</p>
@@ -262,7 +262,7 @@ export default function ProfilePage() {
         </div>
 
         <button onClick={handleSave}
-          className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3.5 rounded-xl font-semibold text-sm transition">
+          className="w-full bg-brand-600 hover:bg-brand-700 text-white py-3.5 rounded-xl font-semibold text-sm transition">
           Sauvegarder le profil
         </button>
       </div>
