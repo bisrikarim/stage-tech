@@ -1,5 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { notFound } from "next/navigation";
+
+export const dynamic = 'force-dynamic';
 import Link from "next/link";
 import { GithubLogo, LinkedinLogo, MapPin, GraduationCap, Star, DownloadSimple, Link as LinkIcon, UserCircle } from "@phosphor-icons/react/dist/ssr";
 import ProjectsSection from "@/components/ProjectsSection";
