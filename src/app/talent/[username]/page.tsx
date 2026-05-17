@@ -84,15 +84,12 @@ export default async function TalentProfilePage({ params }: { params: Promise<{ 
               <LinkIcon size={16} weight="fill" /> Portfolio
             </a>
           )}
-          {(sp.cv_url || sp.cv_filename) && (
-            <a
-              href={sp.cv_url || `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/cvs/${sp.user_id}/${sp.cv_filename}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium px-4 py-2 rounded-full transition">
-              <DownloadSimple size={16} weight="fill" /> Telecharger CV
-            </a>
-          )}
+          {sp.cv_url || sp.cv_filename ? (
+            <div className="inline-flex items-center gap-2 border border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-500 text-sm font-medium px-4 py-2 rounded-full cursor-default select-none"
+              title="Le CV est réservé aux recruteurs validés">
+              <DownloadSimple size={16} weight="fill" /> CV protégé
+            </div>
+          ) : null}
         </div>
       </div>
 
@@ -100,7 +97,7 @@ export default async function TalentProfilePage({ params }: { params: Promise<{ 
         {/* Skills */}
         {Object.keys(skillsByCategory).length > 0 && (
           <div className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6">
-            <h2 className="text-base font-bold text-gray-900 dark:text-white mb-4">Competences</h2>
+            <h2 className="text-base font-bold text-gray-900 dark:text-white mb-4">Compétences</h2>
             <div className="space-y-4">
               {Object.entries(skillsByCategory).map(([cat, items]) => (
                 <div key={cat}>
