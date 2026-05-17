@@ -75,12 +75,22 @@ export default function HomePage() {
             Crée ton profil de stagiaire en quelques minutes. Ajoute ton CV, tes projets et tes compétences.
             Les entreprises tech marocaines consultent le vivier — sois présent.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link href="/signup" className="bg-brand-600 hover:bg-brand-700 text-white px-8 py-3.5 rounded-xl font-bold text-sm transition flex items-center justify-center gap-2">
-              Créer mon profil gratuitement <ArrowRight size={16} weight="bold" />
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link
+              href="/signup"
+              className="group relative inline-flex items-center gap-2.5 bg-brand-600 hover:bg-brand-500 text-white px-7 py-3.5 rounded-2xl font-semibold text-sm shadow-lg shadow-brand-600/30 hover:shadow-brand-500/40 transition-all duration-200 overflow-hidden"
+            >
+              <span className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-2xl" />
+              Créer mon profil gratuitement
+              <span className="inline-flex items-center justify-center w-5 h-5 bg-white/20 rounded-full group-hover:translate-x-0.5 transition-transform duration-200">
+                <ArrowRight size={11} weight="bold" />
+              </span>
             </Link>
-            <Link href="/talents" className="border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:border-brand-400 hover:text-brand-600 dark:hover:text-brand-400 px-8 py-3.5 rounded-xl font-semibold text-sm transition flex items-center justify-center gap-2">
-              <Eye size={16} weight="fill" />
+            <Link
+              href="/talents"
+              className="group inline-flex items-center gap-2.5 bg-white/5 dark:bg-white/5 backdrop-blur-sm border border-gray-200/60 dark:border-white/10 text-gray-700 dark:text-gray-200 hover:border-brand-400/60 dark:hover:border-brand-500/50 hover:text-brand-600 dark:hover:text-brand-400 px-7 py-3.5 rounded-2xl font-semibold text-sm transition-all duration-200"
+            >
+              <Eye size={15} weight="fill" className="opacity-70 group-hover:opacity-100 transition-opacity" />
               Voir les profils
             </Link>
           </div>
@@ -193,8 +203,12 @@ export default function HomePage() {
           <p className="text-brand-100 dark:text-gray-400 mb-8 text-base">
             Crée ton profil maintenant. C&apos;est gratuit, ça prend 5 minutes, et ça peut changer la suite de ton parcours.
           </p>
-          <Link href="/signup" className="inline-flex items-center gap-2 bg-white dark:bg-brand-600 text-brand-700 dark:text-white hover:bg-brand-50 dark:hover:bg-brand-700 px-8 py-3.5 rounded-xl font-bold text-sm transition">
-            Créer mon profil <ArrowRight size={16} weight="bold" />
+          <Link href="/signup" className="group relative inline-flex items-center gap-2.5 bg-white dark:bg-brand-600 text-brand-700 dark:text-white px-8 py-3.5 rounded-2xl font-bold text-sm shadow-lg shadow-black/10 dark:shadow-brand-600/30 hover:bg-brand-50 dark:hover:bg-brand-500 hover:shadow-black/20 dark:hover:shadow-brand-500/40 transition-all duration-200 overflow-hidden">
+            <span className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-2xl" />
+            Créer mon profil
+            <span className="inline-flex items-center justify-center w-5 h-5 bg-brand-100 dark:bg-white/20 rounded-full group-hover:translate-x-0.5 transition-transform duration-200">
+              <ArrowRight size={11} weight="bold" />
+            </span>
           </Link>
         </div>
       </section>
